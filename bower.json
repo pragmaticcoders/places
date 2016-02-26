@@ -1,0 +1,21 @@
+{
+  "name": "restaurants",
+  "authors": [
+    "Konrad Lisiczynski <konrad.lisiczynski@pragmaticcoders.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1"
+  }
+}

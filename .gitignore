@@ -2,3 +2,6 @@ __pycache__/
 env/
 .idea/
 db.sqlite3
+bower_components/
+node_modules/
+*/static/

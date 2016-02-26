@@ -1,0 +1,31 @@
+{
+  "name": "restaurants",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "./node_modules/bower/bin/bower install && ./node_modules/.bin/gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/klis87/restaurants.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/klis87/restaurants/issues"
+  },
+  "homepage": "https://gitlab.com/klis87/restaurants#README",
+  "dependencies": {
+    "add-stream": "^1.0.0",
+    "bower": "^1.7.7",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssnano": "^2.1.1",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^2.2.0",
+    "gulp-uglify": "^1.5.3"
+  }
+}
