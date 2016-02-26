@@ -17,6 +17,8 @@
   ],
   "dependencies": {
     "jquery": "^2.2.1",
-    "ractive": "^0.7.3"
+    "ractive": "^0.7.3",
+    "bootstrap-sass": "^3.3.6",
+    "bootstrap-select": "^1.10.0"
   }
 }

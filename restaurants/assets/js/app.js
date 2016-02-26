@@ -22,7 +22,7 @@ var ractive = Ractive({
 
         var request = {
             location: place,
-            radius: '2000',
+            radius: '1000',
             types: ['bar', 'cafe', 'food', 'restaurant']
         };
 

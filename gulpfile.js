@@ -11,17 +11,17 @@ var gulp = require('gulp'),
         dist: 'restaurants/static/'
     };
 
-gulp.task('default', ['js', 'styles']);
+gulp.task('default', ['js', 'styles', 'fonts']);
 
 gulp.task('styles', function () {
     gulp.src(dirs.assets + 'scss/*.scss')
         .pipe(sass({
-            //includePaths : [dirs.bootstrapScss],
+            includePaths : ['bower_components/bootstrap-sass/assets/stylesheets'],
             outputStyle: 'compressed'
         }).on('error', sass.logError))
-        //.pipe(addStream.obj(gulp.src([
-        //
-        //])))
+        .pipe(addStream.obj(gulp.src([
+            'bower_components/bootstrap-select/dist/css/bootstrap-select.css'
+        ])))
         .pipe(concat('styles.css'))
 		.pipe(autoprefixer({
 			browsers: ['last 2 versions'],
@@ -44,11 +44,18 @@ gulp.task('app-js', function() {
 gulp.task('vendors-js', function() {
     return gulp.src([
         'bower_components/jquery/dist/jquery.js',
-        'bower_components/ractive/ractive.js'
+        'bower_components/ractive/ractive.js',
+        'bower_components/bootstrap-sass/assets/javascripts/bootstrap.js',
+        'bower_components/bootstrap-select/dist/js/bootstrap-select.js'
     ])
         .pipe(concat('vendors.js'))
         .pipe(uglify())
         .pipe(gulp.dest(dirs.dist + 'js'));
+});
+
+gulp.task('fonts', function() {
+    return gulp.src('bower_components/bootstrap-sass/assets/fonts/*')
+        .pipe(gulp.dest(dirs.dist + 'fonts'));
 });
 
 gulp.task('watch', function() {
