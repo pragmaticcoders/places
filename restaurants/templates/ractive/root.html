@@ -1,8 +1,10 @@
 <script id="root-template" type="text/html">
 {% verbatim %}
     <h1>Places</h1>
+    <select class="selectpicker form-control" multiple data-live-search="true" value="{{ selectedPlaces }}">
     {{#each places}}
-        <p><img width="20" height="20" src="{{ icon }}"> {{ name }}</p>
+        <option title="{{ name }}" data-content="<img width='20' height='20' src='{{ icon }}'> {{ name }}">{{ name }}</option>
     {{/each}}
+    </select>
 {% endverbatim %}
 </script>

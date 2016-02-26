@@ -4,10 +4,17 @@ var ractive = Ractive({
     el: '#root',
     template: '#root-template',
     data: {
-        places: []
+        places: [],
+        selectedPlaces: []
     },
     oninit: function() {
         this.getUserLocation().then(this.getPlaces.bind(this));
+    },
+    onrender: function() {
+        this.observe('places', function() {
+            $(this.find('.selectpicker')).selectpicker('refresh');
+            this.set('selectedPlaces', []);
+        }, {defer: true, init: false});
     },
     getUserLocation: function() {
         return $.post('https://www.googleapis.com/geolocation/v1/geolocate?key=' + KEY)
@@ -29,7 +36,7 @@ var ractive = Ractive({
         service.nearbySearch(request, function(results, status) {
             if (status == google.maps.places.PlacesServiceStatus.OK) {
                 self.set('places', results);
-                console.log(results);
+                //console.log(results);
             }
         });
     }

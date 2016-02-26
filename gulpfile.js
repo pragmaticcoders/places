@@ -54,7 +54,7 @@ gulp.task('vendors-js', function() {
 });
 
 gulp.task('fonts', function() {
-    return gulp.src('bower_components/bootstrap-sass/assets/fonts/*')
+    return gulp.src('bower_components/bootstrap-sass/assets/fonts/**/*')
         .pipe(gulp.dest(dirs.dist + 'fonts'));
 });
 
