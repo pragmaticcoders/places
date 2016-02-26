@@ -1,35 +1,39 @@
-(function() {
-    var KEY = 'AIzaSyBVkmNR4m_IAColEmySY4O1mDx3SXIceV4';
+var KEY = 'AIzaSyBVkmNR4m_IAColEmySY4O1mDx3SXIceV4';
 
-    function getUserLocation() {
+var ractive = Ractive({
+    el: '#root',
+    template: '#root-template',
+    data: {
+        places: []
+    },
+    oninit: function() {
+        this.getUserLocation().then(this.getPlaces.bind(this));
+    },
+    getUserLocation: function() {
         return $.post('https://www.googleapis.com/geolocation/v1/geolocate?key=' + KEY)
             .then(function(response) {
-                console.log(response.location);
                 return response.location;
             });
-    }
-
-    function getPlaces(location) {
-         var place = new google.maps.LatLng(location.lat, location.lng);
-
-        var map = document.getElementById('restaurants');
-
-        var service = new google.maps.places.PlacesService(map);
+    },
+    getPlaces: function(location) {
+        var self = this;
+        var place = new google.maps.LatLng(location.lat, location.lng);
+        var service = new google.maps.places.PlacesService(document.createElement('div'));
 
         var request = {
             location: place,
-            radius: '10000',
+            radius: '2000',
             types: ['bar', 'cafe', 'food', 'restaurant']
         };
 
         service.nearbySearch(request, function(results, status) {
-          if (status == google.maps.places.PlacesServiceStatus.OK) {
-            console.log(results);
-          }
+            if (status == google.maps.places.PlacesServiceStatus.OK) {
+                self.set('places', results);
+                console.log(results);
+            }
         });
     }
+});
 
-    getUserLocation().then(getPlaces);
 
-})();
 

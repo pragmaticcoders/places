@@ -4,4 +4,4 @@ from .google_api import Api
 
 
 def home(request):
-    return render(request, 'restaurants/index.html')
+    return render(request, 'index.html')

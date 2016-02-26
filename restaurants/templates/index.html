@@ -7,11 +7,11 @@
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <h1>Restaurants</h1>
-    <div id="restaurants"></div>
+    <div id="root"></div>
     <script type="text/javascript"
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVkmNR4m_IAColEmySY4O1mDx3SXIceV4&libraries=places"></script>
     <script src="{% static 'js/vendors.js' %}"></script>
+    {% include 'ractive/root.html' %}
     <script src="{% static 'js/app.js' %}"></script>
 </body>
 </html>

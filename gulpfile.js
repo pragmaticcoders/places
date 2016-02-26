@@ -43,7 +43,8 @@ gulp.task('app-js', function() {
 
 gulp.task('vendors-js', function() {
     return gulp.src([
-        'bower_components/jquery/dist/jquery.js'
+        'bower_components/jquery/dist/jquery.js',
+        'bower_components/ractive/ractive.js'
     ])
         .pipe(concat('vendors.js'))
         .pipe(uglify())
