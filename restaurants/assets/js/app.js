@@ -5,7 +5,7 @@ var ractive = Ractive({
     template: '#root-template',
     data: {
         places: [],
-        selectedPlaces: []
+        selectedPlaces: undefined
     },
     oninit: function() {
         this.getUserLocation().then(this.getPlaces.bind(this));
@@ -13,7 +13,7 @@ var ractive = Ractive({
     onrender: function() {
         this.observe('places', function() {
             $(this.find('.selectpicker')).selectpicker('refresh');
-            this.set('selectedPlaces', []);
+            this.set('selectedPlaces', undefined);
         }, {defer: true, init: false});
     },
     getUserLocation: function() {
